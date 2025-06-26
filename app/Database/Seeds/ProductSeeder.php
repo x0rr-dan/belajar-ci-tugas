@@ -8,7 +8,6 @@ class ProductSeeder extends Seeder
 {
     public function run()
     {
-        // membuat data
         $data = [
             [
                 'nama' => 'ASUS TUF A15 FA506NF',

@@ -1,10 +1,8 @@
 <?= $this->extend('layout') ?>
-<?= $this->section('content') ?> 
-
+<?= $this->section('content') ?>
 <?php
 if (session()->getFlashData('success')) {
 ?>
-
     <div class="alert alert-info alert-dismissible fade show" role="alert">
         <?= session()->getFlashData('success') ?>
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
@@ -12,11 +10,9 @@ if (session()->getFlashData('success')) {
 <?php
 }
 ?>
-
 <?php
 if (session()->getFlashData('failed')) {
 ?>
-
     <div class="alert alert-danger alert-dismissible fade show" role="alert">
         <?= session()->getFlashData('failed') ?>
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
@@ -27,6 +23,12 @@ if (session()->getFlashData('failed')) {
 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addModal">
     Tambah Data
 </button>
+
+<a type="button" class="btn btn-success" href="<?= base_url() ?>produk/download">
+      Download PDF
+</a>
+
+
 <!-- Table with stripped rows -->
 <table class="table datatable">
     <thead>
@@ -36,7 +38,7 @@ if (session()->getFlashData('failed')) {
             <th scope="col">Harga</th>
             <th scope="col">Jumlah</th>
             <th scope="col">Foto</th>
-            <th scope="col">Aksi</th>
+            <th scope="col"></th>
         </tr>
     </thead>
     <tbody>
@@ -53,22 +55,17 @@ if (session()->getFlashData('failed')) {
                 </td>
                 <td>
                     <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#editModal-<?= $produk['id'] ?>">
-                        Ubah
+                      Ubah
                     </button>
                     <a href="<?= base_url('produk/delete/' . $produk['id']) ?>" class="btn btn-danger" onclick="return confirm('Yakin hapus data ini ?')">
-                        Hapus
+                      Hapus
                     </a>
                 </td>
             </tr>
-        <?php endforeach ?>
-    </tbody>
-</table>
-<!-- End Table with stripped rows -->
-
-<!-- Edit Modal Begin -->
-<div class="modal fade" id="editModal-<?= $produk['id'] ?>" tabindex="-1">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
+            <!-- Edit Modal Begin -->
+            <div class="modal fade" id="editModal-<?= $produk['id'] ?>" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">Edit Data</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -108,9 +105,13 @@ if (session()->getFlashData('failed')) {
         </div>
     </div>
 </div>
-<!-- Edit Modal End -->
+          <!-- Edit Modal End -->
+        <?php endforeach ?>
+    </tbody>
+</table>
 
- <!-- Add Modal Begin -->
+    <!-- End Table with stripped rows -->
+<!-- Add Modal Begin -->
 <div class="modal fade" id="addModal" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
@@ -147,4 +148,5 @@ if (session()->getFlashData('failed')) {
     </div>
 </div>
 <!-- Add Modal End -->
+
 <?= $this->endSection() ?>

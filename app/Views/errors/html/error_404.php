@@ -71,8 +71,7 @@
 <body>
     <div class="wrap">
         <h1>404</h1>
-        <h4>page cant found</h4>
-        <center><img src="https://i.ytimg.com/vi/ofVfz4EaBHc/maxresdefault.jpg" alt="" style="height:300px; width:300px;"></center>
+
         <p>
             <?php if (ENVIRONMENT !== 'production') : ?>
                 <?= nl2br(esc($message)) ?>

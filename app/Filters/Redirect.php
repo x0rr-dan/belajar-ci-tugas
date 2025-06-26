@@ -5,9 +5,8 @@ namespace App\Filters;
 use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
 use CodeIgniter\Filters\FilterInterface;
-use Config\Services;
 
-class Redirect implements FilterInterface
+class redirect implements FilterInterface
 {
     public function before(RequestInterface $request, $arguments = null)
     {
@@ -20,9 +19,8 @@ class Redirect implements FilterInterface
     {
         //something here
         // Do something here
-        if (session()->has('isLoggedIn') && session()->get('isLoggedIn')) {
-            // return redirect()->to('/faq');
-            return redirect()->to(base_url('/faq'));
+        if (session()->has('isLoggedIn')) {
+            return redirect()->to(site_url('faq'));
         }
     }
 }

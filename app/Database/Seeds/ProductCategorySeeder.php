@@ -10,26 +10,28 @@ class ProductCategorySeeder extends Seeder
     {
         $data = [
             [
-                'name'        => 'Electronics',
-                'description' => 'Devices and gadgets',
-                'created_at'  => date('Y-m-d H:i:s'),
-                'updated_at'  => date('Y-m-d H:i:s'),
+                'name' => 'Smartphone',
+                'slug' => 'smartphone',
+                'description' => 'Kategori untuk ponsel pintar',
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
             ],
             [
-                'name'        => 'Books',
-                'description' => 'Printed and digital books',
-                'created_at'  => date('Y-m-d H:i:s'),
-                'updated_at'  => date('Y-m-d H:i:s'),
+                'name' => 'Laptop',
+                'slug' => 'laptop',
+                'description' => 'Kategori untuk perangkat laptop',
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
             ],
             [
-                'name'        => 'Clothing',
-                'description' => 'Apparel for men and women',
-                'created_at'  => date('Y-m-d H:i:s'),
-                'updated_at'  => date('Y-m-d H:i:s'),
-            ],
+                'name' => 'Televisi',
+                'slug' => 'televisi',
+                'description' => 'Kategori untuk TV LED dan Smart TV',
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ]
         ];
 
-        // Using Query Builder
         $this->db->table('product_category')->insertBatch($data);
     }
 }
